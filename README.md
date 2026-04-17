@@ -17,14 +17,16 @@
 
 ### Profile
 
-<p>
-  <img src="./profile-summary-card-output/tokyonight/0-profile-details.svg" width="49%" alt="Profile details" />
-  <img src="./profile-summary-card-output/tokyonight/1-repos-per-language.svg" width="49%" alt="Repos per language" />
-</p>
-<p>
-  <img src="./profile-summary-card-output/tokyonight/3-stats.svg" width="49%" alt="Stats" />
-  <img src="./profile-summary-card-output/tokyonight/4-productive-time.svg" width="49%" alt="Productive time" />
-</p>
+<table>
+  <tr>
+    <td width="50%"><img src="./profile-summary-card-output/tokyonight/0-profile-details.svg" width="100%" alt="Profile details" /></td>
+    <td width="50%"><img src="./profile-summary-card-output/tokyonight/1-repos-per-language.svg" width="100%" alt="Repos per language" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./profile-summary-card-output/tokyonight/3-stats.svg" width="100%" alt="Stats" /></td>
+    <td width="50%"><img src="./profile-summary-card-output/tokyonight/4-productive-time.svg" width="100%" alt="Productive time" /></td>
+  </tr>
+</table>
 
 ### Elsewhere
 
