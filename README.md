@@ -1,7 +1,6 @@
 <!--
   Profile README for https://github.com/TheNordicKnight
   The summary-card SVGs are regenerated daily by .github/workflows/profile-summary-cards.yml
-  The claude-usage card is regenerated locally by scripts/update-claude-usage.ps1
 -->
 
 <h1 align="center">Hi, I'm Nordic Knight</h1>
@@ -19,17 +18,13 @@
 ### Profile
 
 <p>
-  <img src="./profile-summary-card-output/0-profile-details.svg" width="49%" alt="Profile details" />
-  <img src="./profile-summary-card-output/1-repos-per-language.svg" width="49%" alt="Repos per language" />
+  <img src="./profile-summary-card-output/tokyonight/0-profile-details.svg" width="49%" alt="Profile details" />
+  <img src="./profile-summary-card-output/tokyonight/1-repos-per-language.svg" width="49%" alt="Repos per language" />
 </p>
 <p>
-  <img src="./profile-summary-card-output/3-stats.svg" width="49%" alt="Stats" />
-  <img src="./profile-summary-card-output/4-productive-time.svg" width="49%" alt="Productive time" />
+  <img src="./profile-summary-card-output/tokyonight/3-stats.svg" width="49%" alt="Stats" />
+  <img src="./profile-summary-card-output/tokyonight/4-productive-time.svg" width="49%" alt="Productive time" />
 </p>
-
-### Claude Code usage
-
-<img src="./claude-usage/card.svg" width="100%" alt="Claude Code usage (last 14 days)" />
 
 ### Elsewhere
 
