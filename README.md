@@ -3,17 +3,11 @@
   The summary-card SVGs are regenerated daily by .github/workflows/profile-summary-cards.yml
 -->
 
-<h1 align="center">Hi, I'm Nordic Knight</h1>
-
-<p align="center">
-  <em>Replace this line with a one-sentence tagline about what you do and build.</em>
-</p>
-
----
+# Sam Rowland, A.K.A, The Nordic Knight
 
 ### Activity
 
-![Activity graph](https://github-readme-activity-graph.vercel.app/graph?username=TheNordicKnight&theme=github-compact&hide_border=true&area=true&custom_title=Contributions%20in%20the%20last%20year)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=TheNordicKnight&theme=github-compact&hide_border=true&area=true&custom_title=Contributions%20in%20the%20last%20year" width="75%" alt="Activity graph" />
 
 ### Profile
 
