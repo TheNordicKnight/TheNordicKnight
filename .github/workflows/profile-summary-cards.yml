@@ -22,7 +22,10 @@ jobs:
       - name: Generate summary cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Using a PAT (repo + read:user scopes) so stats count activity across
+          # all repos, not just this one. Default GITHUB_TOKEN only sees the
+          # containing repo and undercounts commits/PRs drastically.
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           USERNAME: TheNordicKnight
           # Match Perry Mitchell's dark aesthetic. Alternatives: default, nord_dark, 2077, dracula.
