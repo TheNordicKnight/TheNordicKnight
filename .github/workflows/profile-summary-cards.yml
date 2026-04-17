@@ -1,0 +1,31 @@
+# Regenerates the profile summary cards (stats, languages, productive time, etc.)
+# Docs: https://github.com/vn7n24fzkq/github-profile-summary-cards
+name: GitHub Profile Summary Cards
+
+on:
+  schedule:
+    # Daily at 03:17 UTC (off the hour to avoid cron fleet spikes)
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-cards
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate summary cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: TheNordicKnight
+          # Match Perry Mitchell's dark aesthetic. Alternatives: default, nord_dark, 2077, dracula.
+          # See: https://github.com/vn7n24fzkq/github-profile-summary-cards#themes
+          # If you want a different look change this and re-run the workflow.
+          BRANCH_NAME: main
