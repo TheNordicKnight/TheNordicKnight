@@ -34,6 +34,6 @@ echo "Patching stats cards: Commits in ${YEAR} = ${commits}"
 
 shopt -s nullglob
 for svg in profile-summary-card-output/*/3-stats.svg; do
-  sed -i "s|>Total Commits:<|>Commits in ${YEAR}:<|g" "$svg"
+  sed -i -E "s#>(Total Commits:|Commits in ${YEAR}:|${YEAR} commits:)<#>${YEAR} commits:<#g" "$svg"
   sed -i -E "s|(<text x=\"130\" y=\"39\\.2\"[^>]*>)[0-9]+(</text>)|\\1${commits}\\2|" "$svg"
 done
