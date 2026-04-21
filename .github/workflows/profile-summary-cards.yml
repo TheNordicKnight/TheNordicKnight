@@ -4,7 +4,8 @@ name: GitHub Profile Summary Cards
 
 on:
   schedule:
-    # Daily at 03:17 UTC (off the hour to avoid cron fleet spikes)
+    # Daily at 03:17 UTC (off the hour to avoid cron fleet spikes).
+    # GitHub often delays scheduled runs by 1-2 hours under load.
     - cron: "17 3 * * *"
   workflow_dispatch: {}
 
@@ -18,17 +19,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Use PAT so our follow-up commit pushes with the same credentials
+          # the upstream action uses, and so we can pull its bot commit first.
+          token: ${{ secrets.GH_PAT }}
 
       - name: Generate summary cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          # Using a PAT (repo + read:user scopes) so stats count activity across
-          # all repos, not just this one. Default GITHUB_TOKEN only sees the
-          # containing repo and undercounts commits/PRs drastically.
+          # PAT (repo + read:user) so stats count activity across all repos;
+          # default GITHUB_TOKEN only sees this repo and undercounts drastically.
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           USERNAME: TheNordicKnight
-          # Match Perry Mitchell's dark aesthetic. Alternatives: default, nord_dark, 2077, dracula.
-          # See: https://github.com/vn7n24fzkq/github-profile-summary-cards#themes
-          # If you want a different look change this and re-run the workflow.
+          # tokyonight to match the dark aesthetic. Alternatives: default, nord_dark, 2077, dracula.
+          # https://github.com/vn7n24fzkq/github-profile-summary-cards#themes
           BRANCH_NAME: main
+
+      - name: Rewrite stats card for current calendar year
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          USERNAME: TheNordicKnight
+        run: |
+          git pull --ff-only
+          bash scripts/patch-stats-card.sh
+
+      - name: Commit patched stats cards
+        run: |
+          git config user.name  "profile-summary-cards[bot]"
+          git config user.email "profile-summary-cards-bot@example.com"
+          git add profile-summary-card-output
+          if git diff --cached --quiet; then
+            echo "No stats-card changes to commit."
+          else
+            git commit -m "Patch stats cards with current-year commit count"
+            git push
+          fi
