@@ -8,6 +8,11 @@ on:
     # GitHub often delays scheduled runs by 1-2 hours under load.
     - cron: "17 3 * * *"
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    # Ignore the bot's own commits so the workflow doesn't re-trigger itself.
+    paths-ignore:
+      - 'profile-summary-card-output/**'
 
 permissions:
   contents: write
